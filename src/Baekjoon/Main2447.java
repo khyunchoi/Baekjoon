@@ -18,7 +18,7 @@ public class Main2447 {
 			for (int j = 0; j < N; j++) {
 				sb.append(arr[i][j]);
 			}
-			sb.append('\n');
+			sb.append("\n");
 		}
 		System.out.println(sb);
 	}
