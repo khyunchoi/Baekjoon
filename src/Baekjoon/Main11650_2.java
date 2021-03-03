@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main11650_2 {
@@ -27,11 +26,13 @@ public class Main11650_2 {
 		}
 		mergeSort(0, N-1);
 		
-		System.out.println(Arrays.toString(arr[0]));
-		System.out.println(Arrays.toString(arr[1]));
-		System.out.println(Arrays.toString(arr[2]));
-		System.out.println(Arrays.toString(arr[3]));
-		System.out.println(Arrays.toString(arr[4]));
+		for (int i = 0; i < N; i++) {
+			bw.write(Integer.toString(arr[i][0]) + " ");
+			bw.write(Integer.toString(arr[i][1]));
+			bw.newLine();
+		}
+		bw.flush();
+		bw.close();
 	}
 
 	public static void mergeSort(int start, int end) {
@@ -44,20 +45,20 @@ public class Main11650_2 {
 			int idx = p;
 			
 			while (p <= mid || q <= end) {
-				if (q > end || (p <= mid && arr[p][0] < arr[q][0])) {
+				if (q > end || (p <= mid && arr[p][0] < arr[q][0]) || (arr[p][0] == arr[q][0] && arr[p][1] < arr[q][1])) {
 					tmp[idx][0] = arr[p][0];
-//					tmp[idx][1] = arr[p][1];
+					tmp[idx][1] = arr[p][1];
 					idx++;
 					p++;
 				} else {
 					tmp[idx][0] = arr[q][0];
-//					tmp[idx][1] = arr[q][1];
+					tmp[idx][1] = arr[q][1];
 					idx++;
 					q++;
 				}
 			}
 			
-			for (int i = start; i < end; i++) {
+			for (int i = start; i <= end; i++) {
 				arr[i][0] = tmp[i][0];
 				arr[i][1] = tmp[i][1];
 			}
