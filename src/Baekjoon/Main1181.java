@@ -43,9 +43,23 @@ public class Main1181 {
 			int idx = p;
 
 			while (p <= mid || q <= end) {
-				if (q > end || (p <= mid && arr[p].length() < arr[q].length())
-						|| (arr[p].length() == arr[q].length() && (int) arr[p].charAt(0) < (int) arr[q].charAt(0))) {
+				if (q > end || (p <= mid && arr[p].length() < arr[q].length())) {
 					tmp[idx++] = arr[p++];
+				} else if (p <= mid && arr[p].length() == arr[q].length()){
+					for (int i = 0; i < arr[p].length(); i++) {
+						if (arr[p].equals(arr[q])) {
+							tmp[idx++] = arr[p++];
+							break;
+						}
+						
+						if ((int) arr[p].charAt(i) < (int) arr[q].charAt(i)) {
+							tmp[idx++] = arr[p++];
+							break;
+						} else if ((int) arr[p].charAt(i) > (int) arr[q].charAt(i)) {
+							tmp[idx++] = arr[q++];
+							break;
+						}
+					}
 				} else {
 					tmp[idx++] = arr[q++];
 				}
