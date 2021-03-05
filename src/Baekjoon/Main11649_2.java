@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main11650_2 {
+public class Main11649_2 {
 	public static int arr[][];
 	public static int tmp[][];
 	
