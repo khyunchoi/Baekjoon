@@ -5,13 +5,14 @@ import java.util.Scanner;
 public class Main9663 {
 	public static int N, cnt = 0;
 	public static boolean[][] arr;
-
+	public static boolean[][] initial;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
 		sc.close();
 
 		arr = new boolean[N][N];
+		initial = new boolean[N][N];
 		chessDfs(0);
 		System.out.println(cnt);
 	}
@@ -24,6 +25,11 @@ public class Main9663 {
 
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
+				for (int m = 0; m < N; m++) {
+					for (int n = 0; n < N; n++) {
+						initial[m][n] = arr[m][n];
+					}
+				}
 				if (arr[i][j] == false) {
 					//같은행 같은열 제거
 					for (int k = 0; k < N; k++) {
@@ -47,6 +53,12 @@ public class Main9663 {
 						}
 					}
 					chessDfs(depth+1);
+					
+					for (int m = 0; m < N; m++) {
+						for (int n = 0; n < N; n++) {
+							arr[m][n] = initial[m][n];
+						}
+					}
 				}
 				
 			}
