@@ -40,6 +40,7 @@ public class Main2580 {
 				}
 				bw.newLine();
 			}
+			return;
 		}
 
 		for (int i = 0; i < 9; i++) {
