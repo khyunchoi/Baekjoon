@@ -16,6 +16,7 @@ public class Main14889 {
 		N = Integer.parseInt(br.readLine());
 		arr = new int[N][N];
 		isTrue = new boolean[N];
+		isTrue[0] = true;
 		for (int i = 0; i < N; i++) {
 			String tmp = br.readLine();
 			StringTokenizer st = new StringTokenizer(tmp);
@@ -25,23 +26,24 @@ public class Main14889 {
 		}
 		br.close();
 
-		dfs(0);
+		dfs(1, 1);
 
 		System.out.println(Min);
 
 	}
 
 	// 백트래킹으로 팀 나누고 능력치 차이 최솟값 출력
-	public static void dfs(int depth) {
+	public static void dfs(int at, int depth) {
 		if (depth == N / 2) {
 			Min = Math.min(teamDiff(isTrue), Min);
 			return;
+			
 		}
 
-		for (int i = 0; i < N; i++) {
+		for (int i = at; i < N; i++) {
 			if (!isTrue[i]) {
 				isTrue[i] = true;
-				dfs(depth + 1);
+				dfs(at + 1, depth + 1);
 				isTrue[i] = false;
 			}
 		}
