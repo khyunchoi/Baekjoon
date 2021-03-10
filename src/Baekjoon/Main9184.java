@@ -34,10 +34,7 @@ public class Main9184 {
 		} else if (a > 20 || b > 20 || c > 20) {
 			return w(20, 20, 20);
 		} else if (arr[a][b][c] == -1) {
-			if (a == 0 || b == 0 || c == 0) {
-				arr[a][b][c] = 1;
-				return arr[a][b][c];
-			} else if (a < b && b < c) {
+			if (a < b && b < c) {
 				arr[a][b][c] = w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c);
 				return arr[a][b][c];
 			} else {
