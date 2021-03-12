@@ -24,10 +24,15 @@ public class Main2579 {
 		// result 배열 마지막 두 행 세팅
 		result[N - 1][0] = 0;
 		result[N - 1][1] = arr[N - 1][0];
-		result[N - 2][0] = arr[N - 2][0];
-		result[N - 2][1] = 0;
-		
-		System.out.println(Math.max(Math.max(stairs(0, 0), stairs(0, 1)), stairs(1, 0)));
+		if (N > 1) {
+			result[N - 2][0] = arr[N - 2][0] + arr[N - 1][0];
+			result[N - 2][1] = 0;
+		}
+		if (N > 1) {
+			System.out.println(Math.max(Math.max(stairs(0, 0), stairs(0, 1)), stairs(1, 0)));
+		} else {
+			System.out.println(Math.max(stairs(0, 0), stairs(0, 1)));
+		}
 	}
 
 	public static int stairs(int n, int a) {
