@@ -36,7 +36,7 @@ public class Main10844 {
 			} else if (b == 9) {
 				arr[a][b] = stairNum(a - 1, b - 1);
 			} else {
-				arr[a][b] = stairNum(a - 1, b - 1) + stairNum(a - 1, b + 1);
+				arr[a][b] = (stairNum(a - 1, b - 1) + stairNum(a - 1, b + 1)) % 1000000000;
 			}
 		}
 
