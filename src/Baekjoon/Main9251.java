@@ -3,31 +3,27 @@ package Baekjoon;
 import java.util.Scanner;
 
 public class Main9251 {
-	public static String[] rowArr;
-	public static String[] colArr;
+	public static char[] rowArr;
+	public static char[] colArr;
 	public static Integer[][] arr;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		rowArr = sc.nextLine().split("");
-		colArr = sc.nextLine().split("");
-		arr = new Integer[rowArr.length + 1][colArr.length + 1];
+		rowArr = sc.nextLine().toCharArray();
+		colArr = sc.nextLine().toCharArray();
+		arr = new Integer[rowArr.length][colArr.length];
+		sc.close();
 
-		for (int i = 0; i < arr.length; i++) {
-			arr[i][0] = 0;
-			arr[0][i] = 0;
-		}
-
-		System.out.println(LCS(arr.length - 1, arr.length - 1));
+		System.out.println(LCS(rowArr.length - 1, colArr.length - 1));
 	}
 
 	public static int LCS(int row, int col) {
-		if (row == 0 || col == 0) {
+		if (row == -1 || col == -1) {
 			return 0;
 		}
 		
 		if (arr[row][col] == null) {
-			if (rowArr[row - 1].equals(colArr[col - 1])) {
+			if (rowArr[row] == colArr[col]) {
 				arr[row][col] = LCS(row - 1, col - 1) + 1;
 			} else {
 				arr[row][col] = Math.max(LCS(row - 1, col), LCS(row, col - 1));
