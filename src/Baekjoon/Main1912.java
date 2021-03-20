@@ -11,20 +11,20 @@ public class Main1912 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
+		int N = Integer.parseInt(br.readLine());
 		String tmp = br.readLine();
 		StringTokenizer st = new StringTokenizer(tmp);
-		arr = new int[n];
-		dp = new Integer[n];
+		arr = new int[N];
+		dp = new Integer[N];
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 
 		dp[0] = arr[0];
 
 		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < N; i++) {
 			max = Math.max(max, sequence(i));
 		}
 
