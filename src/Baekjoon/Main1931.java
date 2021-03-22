@@ -20,11 +20,15 @@ public class Main1931 {
 			conference[i][0] = Integer.parseInt(st.nextToken());
 			conference[i][1] = Integer.parseInt(st.nextToken());
 		}
-		// 각 행 2열을 기준으로 오름차순 정렬
+		// 각 행 2열을 기준으로 오름차순 정렬 만약 2열이 같은 행은 1열을 기준으로 오름차순 정렬
 		Arrays.sort(conference, new Comparator<int[]>() {
 			@Override
 			public int compare(int[] o1, int[] o2) {
-				return o1[1] - o2[1];
+				if (o1[1] != o2[1]) {
+					return o1[1] - o2[1];
+				} else {
+					return o1[0] - o2[0];
+				}
 			}
 		});
 		// 현재 tmpEnd에 담긴 행의 2열 값보다 행의 1열값이 크거나 같으면 tmpEnd에 담고 cnt증가
