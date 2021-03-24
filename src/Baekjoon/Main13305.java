@@ -11,17 +11,18 @@ public class Main13305 {
 		int N = Integer.parseInt(br.readLine());
 		String[] lengthTmp = br.readLine().split(" ");
 		String[] costTmp = br.readLine().split(" ");
-		int[] length = new int[lengthTmp.length];
-		int[] cost = new int[costTmp.length];
+		long[] length = new long[lengthTmp.length];
+		long[] cost = new long[costTmp.length];
 
 		for (int i = 0; i < lengthTmp.length; i++) {
-			length[i] = Integer.parseInt(lengthTmp[i]);
+			length[i] = Long.parseLong(lengthTmp[i]);
 		}
 
 		for (int i = 0; i < costTmp.length; i++) {
-			cost[i] = Integer.parseInt(costTmp[i]);
+			cost[i] = Long.parseLong(costTmp[i]);
 		}
-
+		cost[cost.length - 1] = 0;
+		
 		long sum = 0;
 		int j;
 		for (int i = 0; i < length.length; i = j) {
