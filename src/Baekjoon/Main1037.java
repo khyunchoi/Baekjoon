@@ -13,7 +13,7 @@ public class Main1037 {
 		for (int i = 0; i < N; i++) {
 			arr[i] = sc.nextLong();
 		}
-		
+		sc.close();
 		Arrays.sort(arr);
 		
 		System.out.println(arr[0] * arr[arr.length - 1]);
