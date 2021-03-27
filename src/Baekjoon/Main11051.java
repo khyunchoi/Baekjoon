@@ -29,7 +29,7 @@ public class Main11051 {
 		}
 
 		if (arr[a][b] == 0) {
-			arr[a][b] = binomial(a - 1, b) + binomial(a - 1, b - 1);
+			arr[a][b] = (binomial(a - 1, b) + binomial(a - 1, b - 1)) % 10007;
 		}
 
 		return arr[a][b];
