@@ -10,16 +10,24 @@ public class Main2004 {
 		int m = sc.nextInt();
 		sc.close();
 		
-		System.out.println(zero(n));
-		System.out.println(zero(m));
-		System.out.println(zero(n - m));
-		
+		System.out.println(Math.min(five(n) - five(m) - five(n - m), two(n) - two(m) - two(n - m)));
+				
 	}
 	
-	public static int zero(int a) {
+	public static int five(int a) {
 		int sum = 0;
 		while(a >= 5) {
 			a /= 5;
+			sum += a;
+		}
+		
+		return sum;
+	}
+	
+	public static int two(int a) {
+		int sum = 0;
+		while(a >= 2) {
+			a /= 2;
 			sum += a;
 		}
 		
