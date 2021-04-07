@@ -48,16 +48,19 @@ public class Main5430 {
 				sb.append("error");
 			} else {
 				sb.append("[");
-				if (cnt % 2 == 0) {
-					while (deque.size() != 0) {
-						sb.append(deque.poll() + ",");
+				if (deque.size() > 0) {
+					if (cnt % 2 == 0) {
+						while (deque.size() != 0) {
+							sb.append(deque.poll() + ",");
+						}
+					} else {
+						while (deque.size() != 0) {
+							sb.append(deque.pollLast() + ",");
+						}
 					}
-				} else {
-					while (deque.size() != 0) {
-						sb.append(deque.pollLast() + ",");
-					}
+
+					sb.deleteCharAt(sb.lastIndexOf(","));
 				}
-				sb.deleteCharAt(sb.lastIndexOf(","));
 				sb.append("]");
 			}
 			System.out.println(sb);
