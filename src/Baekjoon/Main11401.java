@@ -10,7 +10,7 @@ public class Main11401 {
 		long N = sc.nextLong();
 		long K = sc.nextLong();
 		
-		long result = fact(N) * square(fact(K) * fact(N - K), P - 2) % P;
+		long result = fact(N) * square(fact(K) * fact(N - K) % P, P - 2) % P;
 		
 		System.out.println(result);
 	}
