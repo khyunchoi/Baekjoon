@@ -22,7 +22,7 @@ public class Main10830 {
 
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				sb.append(result[i][j] + " ");
+				sb.append(result[i][j]%1000 + " ");
 			}
 			sb.append("\n");
 		}
@@ -35,15 +35,14 @@ public class Main10830 {
 			return matrix;
 		}
 
-		int[][] tmp = new int[matrix.length][matrix.length];
+		int[][] memo = partition(B / 2);
 
 		if (B % 2 == 0) {
-			tmp = multi(partition(B / 2), partition(B / 2));
+			return multi(memo, memo);
 		} else {
-			tmp = multi(multi(partition(B / 2), partition(B / 2)), matrix);
+			return multi(multi(memo, memo), matrix);
 		}
 
-		return tmp;
 	}
 
 	public static int[][] multi(int[][] arr1, int[][] arr2) {
