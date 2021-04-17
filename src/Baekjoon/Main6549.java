@@ -32,7 +32,6 @@ public class Main6549 {
 					if (min > arr[j]) {
 						min = arr[j];
 					}
-					
 					if (max < min * (j - i + 1)) {
 						max = min * (j - i + 1);
 					}
