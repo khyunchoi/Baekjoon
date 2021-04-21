@@ -3,15 +3,17 @@ package Baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main10816 {
+	public static int[] arr;
+	public static int[] tmp;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		int[] arr = new int[N];
+		arr = new int[N];
+		tmp = new int[N];
 
 		String tmp = br.readLine();
 		StringTokenizer st = new StringTokenizer(tmp, " ");
@@ -20,7 +22,7 @@ public class Main10816 {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 
-		Arrays.sort(arr);
+		mergeSort(0, N - 1);
 
 		int M = Integer.parseInt(br.readLine());
 		String find = br.readLine();
@@ -30,6 +32,27 @@ public class Main10816 {
 			System.out.print(binarySearch(arr, Integer.parseInt(findSt.nextToken())) + " ");
 		}
 
+	}
+
+	public static void mergeSort(int start, int end) {
+		if (start < end) {
+			int mid = (start + end) / 2;
+			mergeSort(start, mid);
+			mergeSort(mid + 1, end);
+			int p = start;
+			int q = mid + 1;
+			int idx = p;
+			while (p <= mid || q <= end) {
+				if (q > end || (p <= mid && arr[p] < arr[q])) {
+					tmp[idx++] = arr[p++];
+				} else {
+					tmp[idx++] = arr[q++];
+				}
+			}
+			for (int i = start; i <= end; i++) {
+				arr[i] = tmp[i];
+			}
+		}
 	}
 
 	public static int binarySearch(int[] arr, int num) {
@@ -60,7 +83,7 @@ public class Main10816 {
 			}
 			midDown--;
 		}
-		
+
 		while (arr[midUp] == num) {
 			cnt++;
 			if (midUp == arr.length - 1) {
