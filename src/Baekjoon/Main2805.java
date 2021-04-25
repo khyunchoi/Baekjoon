@@ -23,7 +23,6 @@ public class Main2805 {
 		}
 
 		System.out.println(binarySearch(M));
-
 	}
 
 	public static long binarySearch(long num) {
