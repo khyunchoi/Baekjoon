@@ -38,7 +38,7 @@ public class Main12015 {
 		int low = 0;
 		int high = list.size() - 1;
 		
-		while (low < high) {
+		while (low <= high) {
 			int mid = (low + high) / 2;
 			if (num <= list.get(mid)) {
 				high = mid - 1;
